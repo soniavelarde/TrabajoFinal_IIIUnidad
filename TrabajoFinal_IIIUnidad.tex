@@ -13,13 +13,12 @@
 \usepackage{enumerate} % enumerados
 \renewcommand{\labelitemi}{$-$}
 \renewcommand{\labelitemii}{$\cdot$}
-\author{Fanny Clemente}
 \title{Caratula}
 \begin{document}
 
 
 
-\author{Fanny Clemente}
+
 \title{Caratula}
 
 \begin{titlepage}
@@ -124,6 +123,46 @@ Para impedir la perdida de datos se debe disponer de una estrategia de copia de 
 \subsection{Como Impedir la Perdida de los Datos}
 
 \subsection{Tipos de Respaldo que Soporta Oracle}
+
+
+-Plan de Respaldo  
+Los procedimientos de respaldo y recuperacion desarrollada deben formar parte de un plan de respaldo y recuperación, el cual debe ser documentado y comunicado a todas las personas involucradas. Dado que, a lo largo del tiempo, varias características que se consideran para desarrollar este plan sufren cambios (software utilizado, soporte,
+etc.), el plan debe ser revisado, y de ser necesario modificado de manera periódica. 
+ 
+El plan debe contener todos los ítems detallados a continuación y cualquier otro que mejore la realización del trabajo o clarifique la tarea. \\\\
+
+
+-Cuáles datos se deben incluir? 
+ 
+Cada aplicación maneja un conjunto muy variado de datos, algunos estáticos, otros dinámicos. Hay datos base, a partir de los cuales se generan datos resultantes (información). Al definir el respaldo, se establece si se copian todos los archivos o parte de ellos. Entra en consideración si la copia incluye los propios programas de la aplicación. La decisión final se tomará sobre la base de la criticidad de los datos y el valor de los mismos.  \\\\
+
+
+-Medios de soporte a utilizar 
+ Los medios a utilizar dependerán del tipo de computadora (micro. Mainframe, etc.), cantidad de información a almacenar, tiempo disponible para realizar el respaldo, costos y obviamente de la tecnología disponible al momento. \\
+ Actualmente se cuenta con una variedad muy amplia de soportes disponibles y a costos muy bajos, sobre todo al nivel de micro computadoras. A nivel mainframe las posibilidades se acotan. Las características principales a considerar de cada opción será la capacidad de almacenamiento, medida en Mg o Gb, y la velocidad de transferencia de datos (cantidad de datos por segundo que es posible grabar), medida en Kb/s. Los soportes magnéticos son los más difundidos; también los hay ópticos.  \\\\
+
+Las opciones más comunes son (en orden descendente por capacidad de almacenamiento promedio): \\ 
+1.-Discos duros.\\
+2.-Cintas (4mm, 8mm, QIC).\\
+3.-Cartuchos (alta densidad, micro)\\
+4.-C D R O M.\\
+5.-Zip drive.\\
+6.-Tarjetas PCM-CIA.\\
+7.-Diskette  \\\\
+
+\newpage
+
+-¿Cuándo realizarlo? 
+
+Para determinar cuándo se realiza el respaldo debemos conocer los tiempos incurridos en desarrollar la tarea y las ventanas de tiempo disponibles en producción (tiempo disponible para realizar tareas que no afecte a los procesos habituales de procesamiento de datos). Los tiempos incurridos en desarrollar la tarea varían dependiendo del soporte utilizado (a mayor velocidad de transferencia menor tiempo incurrido), el tipo de respaldo utilizado (el full back-up es el que lleva mayor cantidad de tiempo) y la cantidad de datos a respaldar (a mayor cantidad mayor tiempo de respaldo). 
+Generalmente, en las empresas, las ventanas de tiempo disponibles durante las semanas son chicas, por lo que se combinan los tipos de respaldo  dependiendo del día de la semana. Así, el fin de semana se realiza un respaldo global y durante la semana se realizan respaldos incrementales. Existen momentos en los cuales es necesario realizar respaldos extraordinarios, como ser nueva instalación de una aplicación, o migración de bases de datos o traslado del equipamiento. En estas circunstancias deben realizarse un respaldo global, para estar totalmente cubierto. \\
+
+
+
+
+
+
+
 \subsection{Marco Conceptual}
 
 \newpage

@@ -1,0 +1,14 @@
+\select@language {spanish}
+\contentsline {section}{\numberline {1}INTRODUCCI\IeC {\'O}N}{2}
+\contentsline {section}{\numberline {2}Objetivos}{3}
+\contentsline {subsection}{\numberline {2.1}Generales}{3}
+\contentsline {subsection}{\numberline {2.2}Especificos}{3}
+\contentsline {section}{\numberline {3}Marco Teorico}{4}
+\contentsline {subsection}{\numberline {3.1}Copias de Seguridad y Restauracion de Base de Datos}{4}
+\contentsline {subsection}{\numberline {3.2}Como Impedir la Perdida de los Datos}{4}
+\contentsline {subsection}{\numberline {3.3}Tipos de Respaldo que Soporta Oracle}{4}
+\contentsline {subsection}{\numberline {3.4}Marco Conceptual}{5}
+\contentsline {section}{\numberline {4}Desarrollo}{6}
+\contentsline {subsection}{\numberline {4.1}Procedimiento para la Creacion de Copias}{6}
+\contentsline {section}{\numberline {5}Referencias}{7}
+\contentsline {section}{\numberline {6}Conclusiones}{8}
