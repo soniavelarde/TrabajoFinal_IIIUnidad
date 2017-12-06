@@ -232,8 +232,45 @@ Generalmente, en las empresas, las ventanas de tiempo disponibles durante las se
 
 \newpage
 
+RedoLog: El Redo Log es un conjunto de archivos que protegen la información de la base de datos alterada que aún no ha sido escrita en los archivos.
 \section{Desarrollo}
 \subsection{Procedimiento para la Creacion de Copias}
+Primero se instaló la base de datos Oracle:
+Oracle Database 11g Release 2 (11.2.0.1.0)
+Standard Edition, Standard Edition One, and Enterprise Edition para Windows\\
+http://www.oracle.com/technetwork/database/enterprise-edition/downloads/112010-win64soft-094461.html\\
+
+Segundo se utilizó el programa sql developer para windows, esto fue para migrar la base de datos de mysql a oracle.
+Si es que se requiera cambiar el puerto  oracle exec DBMS xdb.sethttpport(8082)
+
+Las copias de seguridad o backups pueden ser físicas y lógicas:
+-Las físicas se realizan cuando se copian los ficheros que soportan la BD. Entre estos se encuentran los backups\\
+del SO, los backups en frío y los backups en caliente.
+
+Backups del SO
+Este tipo de backup implica parar la BD en modo normal y esto la hace inaccesible el sistema mientras se lleva a cabo.
+
+Backups de la BD en Frio
+Los backups en frio implican parar la BD en modo normal y copiar todos los ficheros sobre los que se asienta. Antes de parar la BD hay que parar también todas las aplicaciones que estén trabajando con la BD. Una vez realizada la copia de los ficheros, la BD se puede volver a arrancar.
+
+Backups de la BD en Caliente
+El backup en caliente se realiza mientras la BD está abierta y funcionando en modo ARCHIVELOG. Habrá que tener cuidado de realizarlo cuando la carga de la BD sea pequeña. Este tipo de backup consiste en copiar todos los ficheros correspondientes a un tablespace determinado, los ficheros redo log archivados y los ficheros de control.
+
+
+-Las lógicas sólo extraen información de las tablas utilizando comandos SQL y utilizando las herramientas export e import.
+
+Backups Lógicos con Export/Import
+
+Estas utilidades permiten al DBA hacer copias de determinados objetos de la BD, así como restaurarlos o moverlos de una BD a otra. Estas herramientas utilizan comandos del SQL para obtener el contenido de los objetos.
+
+NOTA: Una vez que se ha planeado una estrategia de backup y se ha probado, conviene automatizarla para facilitar así su cumplimiento.
+\newpage
+BACKUPS  DESDE  ENTERPRISE  MANAGER:\\
+
+\includegraphics[width=10cm]{./imagen/imagen-1}
+
+Una vez logueados en EM, iremos al apartado “Disponibilidad” y apuntaremos a
+“Planificar Copia de Seguridad”.
 
 \newpage
 \section{Referencias}
