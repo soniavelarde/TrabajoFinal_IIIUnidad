@@ -130,7 +130,18 @@ Ademas, las copias de seguridad de una base de datos son útiles para fines admi
 \subsection{Como Impedir la Perdida de los Datos}
 
 Impedir la perdida de datos es uno de los problemas más importantes que afrontan los administradores de sistemas.  \\
+a)Disponer de una estrategia de copia de seguridad \\
+ 
+Debe tener una estrategia de copia de seguridad para aminorar la pérdida de datos y recuperar los datos perdidos. 
+Los datos se pueden perder como consecuencia de errores de hardware o de software, o bien por: \\ 
+- El uso accidental o malintencionado de una instruccion DELETE. \\
+- El uso accidental o malintencionado de una instruccion UPDATE; por ejemplo, no utilizar la clausula WHERE con una instruccion UPDATE (se actualizan todas las filas en lugar de una fila concreta de la tabla). \\
+- Virus destructivos. \\
+- Desastres naturales, como incendios, inundaciones y terremotos. \\
+- Robo.  \\
+Si utiliza una estrategia de copia de seguridad adecuada, puede restaurar los datos con un costo minimo sobre la produccion y reducir la posibilidad de que los datos se pierdan definitivamente. Piense en la estrategia de copia de seguridad como un seguro. Su estrategia de copia de seguridad debe devolver el sistema al punto en el que se encontraba antes del problema. Al igual que con una póliza de seguros, preguntese: ¿cuanto estoy dispuesto a pagar y cuantas perdidas puedo permitirme?.  \\
 
+Los costos asociados con la estrategia de copia de seguridad incluyen la cantidad de tiempo que se emplea en diseñar, implementar, automatizar y probar los procedimientos de copia de seguridad. Aunque la perdida de datos no se puede impedir completamente, debe diseñar una estrategia de copia de seguridad para reducir el alcance de los daños. Cuando diseñe una estrategia de copia de seguridad, considere la cantidad de tiempo que se puede permitir que el sistema esté parado, así como la cantidad de datos que se puede admitir perder (si puede perderse alguno) en el caso de un error del sistema. \\
 \subsection{Tipos de Respaldo que Soporta Oracle}
 
 
