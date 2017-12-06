@@ -235,6 +235,36 @@ Generalmente, en las empresas, las ventanas de tiempo disponibles durante las se
 \section{Desarrollo}
 \subsection{Procedimiento para la Creacion de Copias}
 
+\begin{enumerate}
+\bf\underline{RECUPERACIÓN  DESDE  ENTERPRISE  MANAGER:}
+\end{enumerate}
+Para realizar una recuperación desde EM, iremos a “Disponibilidad” y seleccionamos Realizar Recuperación: \\
+\\
+\includegraphics[width=14cm]{./IMG/img40.jpg}
+
+En ámbitos de recuperación podemos seleccionar toda o parte de la base de datos para recuperar. \\
+\\
+Para  el  ejemplo  hemos  borrado  el  datafile  USERS01.DBF(OFFLINE)  después  de realizar el backup y ahora vamos a intentar recuperarlo. Para ello usaremos la copia que acabamos de realizar. \\
+\\
+Iniciamos oracle en modo mount y arrancamos EM. \\
+\\
+Al no poder iniciar nos encontramos con esto una vez logueados.
+
+\includegraphics[width=14cm]{./IMG/img41.jpg}
+
+Pinchamos en Realizar Recuperación. Introducimos los credenciales de host. Continuar Nos conectamos como sysdba.
+
+\newpage
+\includegraphics[width=14cm]{./IMG/img42.jpg}
+
+En el ámbito de recuperación elegimos Archivos de Datos y en el tipo de operación restaurar hasta hora actual. Pinchamos en recuperar.
+
+\newpage
+\includegraphics[width=14cm]{./IMG/img43.jpg}
+
+Vemos  como  EM  localiza  la  ruta  en  conflicto  y  te  la  presenta  para  seleccionarla. Siguiente.
+
+
 \newpage
 \section{Referencias}
 \newpage 
