@@ -142,7 +142,22 @@ Los datos se pueden perder como consecuencia de errores de hardware o de softwar
 Si utiliza una estrategia de copia de seguridad adecuada, puede restaurar los datos con un costo minimo sobre la produccion y reducir la posibilidad de que los datos se pierdan definitivamente. Piense en la estrategia de copia de seguridad como un seguro. Su estrategia de copia de seguridad debe devolver el sistema al punto en el que se encontraba antes del problema. Al igual que con una póliza de seguros, preguntese: ¿cuanto estoy dispuesto a pagar y cuantas perdidas puedo permitirme?.  \\
 
 Los costos asociados con la estrategia de copia de seguridad incluyen la cantidad de tiempo que se emplea en diseñar, implementar, automatizar y probar los procedimientos de copia de seguridad. Aunque la perdida de datos no se puede impedir completamente, debe diseñar una estrategia de copia de seguridad para reducir el alcance de los daños. Cuando diseñe una estrategia de copia de seguridad, considere la cantidad de tiempo que se puede permitir que el sistema esté parado, así como la cantidad de datos que se puede admitir perder (si puede perderse alguno) en el caso de un error del sistema. \\
+
+b) Hacer copias de seguridad con regularidad \\
+
+La frecuencia con que haga las copias de seguridad de la base de datos depende de la cantidad de datos que esté dispuesto a perder y la actividad de la base de datos. Cuando haga copias de seguridad de bases de datos de usuario, tenga en cuenta los siguientes hechos e instrucciones: \\
+
+- Puede hacer copias de seguridad de la base de datos con frecuencia si el sistema se encuentra en un entorno de proceso de transacciones en línea (OLTP, Online Transaction Processing). \\
+- Puede hacer copias de seguridad de la base de datos con menos frecuencia si el sistema tiene poca actividad o se utiliza, principalmente, para la toma de decisiones. \\
+- Debe programar las copias de seguridad cuando no se estén efectuando muchas actualizaciones en SQL Server. \\
+- Tras determinar la estrategia de realización de copias de seguridad, puede automatizar el proceso con el Asistente para planes de mantenimiento de bases de datos. \\
+
 \subsection{Tipos de Respaldo que Soporta Oracle}
+- Completo: Se respalda toda la base de datos. \\
+- Incremental: Debe tener previamente un respaldo completo. Respalda a medida que se realizan cambios. \\
+- Diferencial: Debe tener previamente un respaldo completo. Respalda las diferencias existentes entre un respaldo y otro. \\
+- Flashbacks: Permite de manera rápida volver a un estado anterior de la base de datos. \\
+
 
 
 -Plan de Respaldo  
