@@ -222,13 +222,72 @@ Las opciones más comunes son (en orden descendente por capacidad de almacenamie
 Para determinar cuándo se realiza el respaldo debemos conocer los tiempos incurridos en desarrollar la tarea y las ventanas de tiempo disponibles en producción (tiempo disponible para realizar tareas que no afecte a los procesos habituales de procesamiento de datos). Los tiempos incurridos en desarrollar la tarea varían dependiendo del soporte utilizado (a mayor velocidad de transferencia menor tiempo incurrido), el tipo de respaldo utilizado (el full back-up es el que lleva mayor cantidad de tiempo) y la cantidad de datos a respaldar (a mayor cantidad mayor tiempo de respaldo). 
 Generalmente, en las empresas, las ventanas de tiempo disponibles durante las semanas son chicas, por lo que se combinan los tipos de respaldo  dependiendo del día de la semana. Así, el fin de semana se realiza un respaldo global y durante la semana se realizan respaldos incrementales. Existen momentos en los cuales es necesario realizar respaldos extraordinarios, como ser nueva instalación de una aplicación, o migración de bases de datos o traslado del equipamiento. En estas circunstancias deben realizarse un respaldo global, para estar totalmente cubierto. \\
 
+-Verificación del respaldo \\
+Usualmente, la tarea electrónica-mecánica de grabación, requerida en las copias, se lleva a cabo correctamente. Sin embargo, la única forma de saber que se grabó bien, es volver a leer la copia grabada y verificar que coincida con lo leído originalmente. Esta verificación insume tiempo adicional. \\
+ 
+Es mejor realizar la verificación en otra computadora, y de manera periódica. Dependiendo de la cantidad de respaldo y del historial de errores, es posible aplicar muestreo estadístico para realizar las verificaciones. \\
+
+-Registro \\
+Se recomienda llevar un registro de los respaldos que se realizan, así como también las eventuales recuperaciones. Este registro es una historia de los respaldos y las recuperaciones llevados a cabo, al cual se agrega toda observación relevante sobre la aplicación, como por ejemplo, cambios de versiones. \\
+
+Se sugiere disponer de un registro, el cual consta de las siguientes columnas: \\
+
+-Fecha (día/mes/año) \\
+-Identificación de operador (por ejemplo, sus iniciales \\
+-Identificación del juego de respaldo (por ejemplo, por letra)  \\
+-Hora de inicio (hora: minuto) \\
+-Hora de finalización (hora: minuto) \\
+-Resultado \\
+-Rúbrica del operador \\
+
+“Resultado” es cómo finalizó la ejecución: sin observaciones si terminó correctamente, o bien cuáles anomalías (por ejemplo, cinta con error, corte de luz, etc.). Para cada respaldo se completa una línea. Para cambios de versión, etc, se hace la anotación, a renglón seguido, en forma descriptiva y sintética, con fecha. Para la recuperación se indica “RECUPERACIÓN” y se utilizan dos líneas, para identificar a los dos operadores que realizan el proceso.  \\\\
+
+-Consejos para hacer los respaldos y las recuperaciones \\
+
+Siguen a continuación los consejos para hacer bien los respaldos, en la frecuencia y forma que correspondan, y para llevar a cabo satisfactoriamente las recuperaciones, toda vez que sea necesario. Se los presenta en forma de lista para enfatizarlos: \\\\
+
+●	Disponer del tiempo suficiente\\
+●	No distraerse por ningún concepto\\
+●	No hacerlo cuando se esté cansado\\
+●	Trabajar ordenado\\
+●	Disponer de suficiente cantidad de cintas, diskettes, u otros \\
+●	soportes correctamente rotulados\\
+●	Contar con otra persona para las recuperaciones\\
+●	Permanecer junto a la computadora durante la  tarea \\
+●	Verificar una vez por año estado correcto de la computadora \\
+●	Verificar una vez por año lectura/grabación de los respaldos \\
+●	Tener acceso a otra computadora de similares características  \\\\
 
 
+-Instalaciones grandes \\\\
 
-
+En instalaciones de computación de mediano y gran parte (con computadoras ‘mainframes’, minis y micros), tal como oficinas y empresas estatales, instituciones bancarias, empresas de l00 o más empleados y operarios, etc., deben existir normas y procedimientos preestablecidos, tanto genéricos como específicos de cada sistema. En dichos centros de cómputo, las tareas de respaldo son una operación más de las habituales, que estén incorporadas en las rutinas diarias, mensuales, etc. \\\\
 
 
 \subsection{Marco Conceptual}
+
+ORACLE: Oracle es un sistema de gestión de base de datos relacional considerado como uno de los sistemas de bases de datos más completos, destacando su soporte de transacciones, estabilidad, escalabilidad, soporte multiplataforma.\\\\
+
+RESPALDOS: Las copias de seguridad son un proceso que se utiliza para salvar toda la información, es decir, un usuario, quiere guardar toda la información, o parte de la información, de la que dispone en el PC hasta este momento, realizará una copia de seguridad de tal manera, que lo almacenará en algún medio de almacenamiento tecnológicamente disponible hasta el momento como por ejemplo cinta, DVD, BluRay, discos virtuales (proporcionados por Internet) o simplemente en otro disco duro, para posteriormente poder restaurar el sistema si pierde la información.\\\\
+
+ RECUPERACIÓN: Es proteger la base de datos contra fallas lógicas o físicas que destruyan los datos en forma total o parcial. Y a su vez estas fallas pueden afectar al correcto almacenamiento de los datos.\\\\
+
+ RMAN: Es un método preferido para realizar copias de seguridad de manera eficiente y la recuperación de una base de datos Oracle. RMAN optimiza el rendimiento y el consumo de espacio durante la copia de seguridad con compresión de archivos de la multiplexación y de respaldo, y se integra con Oracle Secure Backup y productos de terceros medios de gestión de backup en cinta.\\\\
+
+ Catálogo RMAN: El catálogo de RMAN contiene metadata que RMAN utiliza para respaldar y recuperar la base de datos primaria. Aunque este componente no es obligatorio, ya que podemos respaldar utilizando nada más el control file, se diría que es una buena práctica tenerlo en nuestro ambiente de respaldos y recuperación.\\\\
+
+ Archive Log: El archive log permite generar respaldos en caliente de la base de datos, aunque se puede generar el respaldo de la base de datos con RMAN cuando la misma está cerrada (en frío).\\\\
+
+ Backup en Frio: Los backups en frio implican parar la BD en modo normal y copiar todos los ficheros sobre los que se asienta. Antes de parar la BD hay que parar también todas las aplicaciones que estén trabajando con la BD. Una vez realizada la copia de los ficheros, la BD se puede volver a arrancar.\\\\
+
+ Backup en Caliente: El backup en caliente se realiza mientras la BD está abierta y funcionando en modo ARCHIVELOG. Habrá que tener cuidado de realizarlo cuando la carga de la BD sea pequeña.\\\\
+
+Este tipo de backup consiste en copiar todos los ficheros correspondientes a un tablespace determinado, los ficheros redo log archivados y los ficheros de control. Esto para cada tablespace de la BD.\\\\
+
+ Oracle DataPump: Es una característica nueva y única de Oracle Database 11g Release 2. Un nuevo paquete de interfaz pública, DBMS_DATAPUMP, proporciona una infraestructura de servidor para los datos rápidos y movimiento metadatos entre las bases de datos de Oracle. Es ideal para las bases de datos amplias y entornos de almacenamiento de datos, ahorro de tiempo para los administradores de bases de datos. DataPump es una característica integral de Oracle Database 11g Release 2 y está disponible en todas las configuraciones.\\\\
+
+
+
 
 \newpage
 
@@ -301,71 +360,10 @@ En el ámbito de recuperación elegimos Archivos de Datos y en el tipo de operac
 
 Vemos  como  EM  localiza  la  ruta  en  conflicto  y  te  la  presenta  para  seleccionarla. Siguiente.
 
-\includegraphics[width=20cm]{./IMG/img35.png}
-
-\begin{enumerate}
-También podemos definir el destino de la restauración. Para el ejemplo nos interesa que se ubiquen en el mismo directorio. \\
-\end{enumerate}
-
-\newpage
-
-\includegraphics[width=20cm]{./IMG/img36.png}
-\begin{enumerate}
-Podemos revisar los parámetros RMAN para ver y comprender las acciones realizadas por debajo de EM. Una vez toda revisado procedemos a ejecutar. \\
-\\
-Esto lo que hará será tomar del backup el fichero y llevarlo al destino aplicando los cambios hasta el momento de la pérdida permitiendo así el inicio normalde la BD con tablespace online. \\
-\\
-Una vez finalizado podemos pinchar en Abrir Base de Datos y esta se reiniciará y se abría automáticamente despúes de ver insertado nuestros credenciales. \\
-\\
-\end{enumerate}
 
 \newpage
 \section{Referencias}
-\subsection{5.1.1. Bibliografía}
-\begin{enumerate}
-\bf\line{Administración de Base de Datos}
-\end{enumerate}
-\begin{enumerate}
-``Análisis y Configuración de un Plan de Respaldo de Base de Datos Oracle 11g Usando Metodología (Rman y Datapump) para la Administración de Backup en DM2 Consulting”. \\
-\\
-Copias de seguridad y restauración. Por Raúl Lobo Medinilla, IES Gonzalo Nazareno
-pág. Nº02 \\
-Oracle Database 11g en Windows: Desarrollo e Implementación.pdf
-\\
-
-\end{enumerate}
-\begin{enumerate}
-\bf\line{TRABAJO DE INVESTIGACIÓN PARA OPTAR EL TÍTULO DE INGENIERÍA DE SISTEMAS}
-\end{enumerate}
-\begin{enumerate}
-``Análisis y Configuración de un Plan de Respaldo de Base de Datos Oracle 11g Usando Metodología (Rman y Datapump) para la Administración de Backup en DM2 Consulting” AVILA BERNARDO, HILDA MERY, 2015" \\
-\end{enumerate}
-
-\begin{enumerate}
-http://i.dell.com/sites/content/shared-content/data-sheets/en/Documents/Oracle-11g-Backup-and-Recovery-using-RMAN-and-EqualLogic-Snapshots.pdf
-\end{enumerate}
-\begin{enumerate}
-Libros y Trabajo: \\
-https://drive.google.com/folderview?id=0B8xXA1AczgtIdmtmMEh2NjVOdm8&usp=sharing \\
-https://github.com/rogergcc/TrabajoFinalBD2
-\end{enumerate}
-
-\subsection{5.1.2. Artículos}
-\begin{enumerate}
-http://searchdatacenter.techtarget.com/es/cronica/Copia-de-seguridad-completa-incremental-o-diferencial-como-elegir-el-tipo-adecuado \\
-\\
-http://www.ajpdsoft.com/modules.php?name=News&file=article&sid=560 \\
-\\
-ORACLE: Backup y Recuperación \\
-http://www.infor.uva.es/~jvegas/cursos/bd/oraback/oraback.html#1 \\
-https://www.youtube.com/watch?v=0NLsJQCvKXY
-\end{enumerate}
-
 \newpage 
 \section{Conclusiones} 
-\begin{itemize}
-\item La planeación de una buena estrategia de backup y de restauración es imprescindible para agilizar la restauración de información. \\
-\item Un Estrategia de backup va a depender los datos a respaldar. \\
-\item Se pueden realizar backups con la base de datos conectada o desconectada además de por modo consola o grafica con el Enterprise Manager. \\
-\end{itemize}
+
 \end{document}
